@@ -47,7 +47,7 @@ recent_more_text = "more »"
 sections = [
     { name = "posts", path = "/posts", is_external = false },
     { name = "projects", path = "/projects", is_external = false },
-    { name = "RSS", path = "/feed.xml" , is_external=true},
+    { name = "rss", path = "/feed.xml" , is_external=true},
 ]
 blog_section_path = "/posts"
 
