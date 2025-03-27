@@ -1,0 +1,25 @@
+[[collection]]
+type = "card"
+title = "MeRead"
+link = "https://github.com/gvenusleo/MeRead"
+icon = "/icon/github.svg"
+content = "简洁易用的移动端 RSS 阅读器，使用 Flutter 开发，基于 Material You 设计"
+tags = ["flutter", "metarial you", "android", "rss"]
+
+[[collection]]
+type = "card"
+title = "QChat"
+subtitle = "已停止维护"
+link = "https://github.com/gvenusleo/lex-app"
+icon = "/icon/github.svg"
+content = "使用 Flutter 开发的移动端 AI 聊天软件，支持自定义 API 服务"
+tags = ["flutter", "android", "ai"]
+
+[[collection]]
+type = "card"
+title = "lex-app"
+subtitle = "已停止维护"
+link = "https://github.com/gvenusleo/lex-app"
+icon = "/icon/github.svg"
+content = "桌面端跨平台划词翻译软件，使用 Flutter 开发，支持多种翻译和 AI 服务"
+tags = ["flutter", "desktop", "translate", "ai"]
