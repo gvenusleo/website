@@ -4,26 +4,25 @@ Post 结构：
 
 ```markdown
 +++
-title = "Typst 好在哪里？"
-date = 2025-01-19
-draft = false
+title = ""
+description = ""
+date = 2022-01-01
+updated = 2025-01-01
+draft = true
 
 [taxonomies]
-categories = ["工具软件"]
-tags = ["typst"]
+categories = ["one"]
+tags = ["one", "two", "three"]
 
 [extra]
-lang = "zh"
+lang = "en"
 toc = true
-comment = true
+comment = false
 copy = true
-math = true
-mermaid = false
 outdate_alert = true
 outdate_alert_days = 120
-display_tags = true
-truncate_summary = false
+math = false
+mermaid = false
 featured = false
 reaction = false
-+++
 ```
