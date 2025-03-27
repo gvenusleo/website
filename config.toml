@@ -48,7 +48,7 @@ back_link_text = "Back"  # Text of the back button
 force_theme = false      # false | "light" | "dark"
 
 footer_copyright = "© 2025 liuyuxin 京ICP备2022029058号"
-footer_credits = true
+footer_credits = false
 
 not_found_error_text = "Not Found"
 not_found_recover_text = "« back to home »"

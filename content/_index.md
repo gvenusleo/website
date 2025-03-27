@@ -26,3 +26,5 @@ links = [
 这里作为个人站点，主要写点周报和博客，大概保持每周 1 篇的更新。文章会在我的微信公众号同步更新，微信搜索「刘玉新」找到我。
 
 PS. 站点重构中，最近忙春招，稳定后更新……
+
+> Built with [zola](https://www.getzola.org/) and [serene](https://github.com/isunjn/serene)
