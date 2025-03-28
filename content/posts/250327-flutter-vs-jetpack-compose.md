@@ -80,7 +80,7 @@ Jetpack Compose 的声明式是基于 Kotlin DSL 实现的，Composable 本质�
 Jetpack Compose 的「一切皆函数」体现在：
 
 - 一切组件都是函数，由于没有类的概念，因此不会有任何继承的层次结构，所有组件都是顶层函数，可以在 DSL 中直接调用。
-- Composable 函数通过多级嵌套形成结构化的函数调用链，函数调用链经过运行后生成一颗 UI 视图树。
+- Composable 函数通过多级嵌套形成结构化的函数调用链，函数调用链经过运行后生成一棵 UI 视图树。
 - 视图树一旦生成便不可随意改变。视图的刷新依靠 Composable 函数的反复执行来实现。
 - Composable 函数必须幂等、无返回值，且执行顺序敏感。
 - Composable 函数只能在 Composable 函数中调用。
