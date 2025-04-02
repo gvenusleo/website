@@ -27,4 +27,4 @@ links = [
 
 PS. 站点重构中，最近忙春招，稳定后更新……
 
-> Built with [zola](https://www.getzola.org/) and [serene](https://github.com/isunjn/serene)
+> Built with [zola](https://www.getzola.org/), [serene](https://github.com/isunjn/serene) and [catppuccin](https://catppuccin.com/)
