@@ -1,5 +1,5 @@
 +++
-title = "从对象到函数：Flutter 与 Jetpack Compose 的抽象范式对比"
+title = "Flutter 与 Jetpack Compose 的抽象范式"
 description = "同为声明式 UI 框架，Flutter 和 Jetpack Compose 在设计理念上也存在一定差异。准确来说，Flutter 的「一切皆 Widget」和 Jetpack Compose 的「一切皆函数」是两种不同的抽象范式。"
 date = 2025-03-27
 updated =2025-03-27
@@ -17,14 +17,12 @@ mermaid = true
 
 # 1 抽象层面对比
 
-| 维度          | Flutter                          | Jetpack Compose                  |
-|---------------|----------------------------------|----------------------------------|
-| **基本单元**   | Widget（不可变配置对象）         | Composable 函数（可重组函数）   |
-| **核心抽象**   | 对象树（Widget → Element → RenderObject） | 函数调用树（基于 Gap Buffer 的智能重组） |
-| **状态管理**   | 通过 StatefulWidget 与 State 对象的分离来管理状态 | 通过 remember 函数结合 mutableState 创建状态闭包 |
-| **更新机制**   | 重建 Widget 树 + Diff 算法       | 标记重组范围 + 智能跳过           |
-
-**关键区别**：
+| 维度       | Flutter                              | Jetpack Compose                      |
+| -------- | ------------------------------------ | ------------------------------------ |
+| **基本单元** | Widget（不可变配置对象）                      | Composable 函数（可重组函数）                 |
+| **核心抽象** | 对象树（Widget → Element → RenderObject） | 函数调用树（基于 Gap Buffer 的智能重组）           |
+| **状态管理** | 通过 StatefulWidget 与 State 对象的分离来管理状态 | 通过 remember 函数结合 mutableState 创建状态闭包 |
+| **更新机制** | 重建 Widget 树 + Diff 算法                | 标记重组范围 + 智能跳过                        |
 
 - Flutter 的 Widget 是**配置描述**（如 React 的 Virtual DOM），实际渲染由 RenderObject 处理。
 - Jetpack Compose 的 Composable 函数是**执行指令**，直接生成渲染树节点（类似 Svelte 的编译时方案）。
@@ -52,6 +50,7 @@ GestureDetector(
   child: Container(),
 )
 ```
+
 本质上，Widget 是统一的配置单元，但实际运行时会被转化为不同实体：
 
 - 布局 Widget → 创建 RenderObject
@@ -110,9 +109,9 @@ Box(Modifier.clickable {})
 
 Flutter 的「一切皆 Widget」类似于用**乐高积木**搭建 UI：
 
-- **标准化模块**：每个 Widget 都是预定义的积木块（如 `Text`、`Container`），通过固定接口（属性参数）组合。
+- **标准化模块**：每个 Widget 都是预定义的积木块（如 `Text`、`Container`），通过固定接口（属性参数）组合。
 - **不可变性**：乐高积木一旦拼装完成，修改需要替换整块（Widget 重建）。
-- **显式组装**：必须手动连接积木（通过 `child`/`children` 嵌套），层级关系严格。
+- **显式组装**：必须手动连接积木（通过 `child`/`children` 嵌套），层级关系严格。
 
 ```dart
 // 类似用乐高拼装一辆车
@@ -129,9 +128,9 @@ Column(
 
 而 Jetpack Compose 的「一切皆函数」更像用**粘土**塑造 UI：
 
-- **自由塑形**：通过函数调用直接捏出 UI（如 `Box { Text(...) }`），无需预定义组件层级。
+- **自由塑形**：通过函数调用直接捏出 UI（如 `Box { Text(...) }`），无需预定义组件层级。
 - **动态重组**：粘土可随时重塑（函数重组），只需修改受影响部分（智能跳过未变化区域）。
-- **隐式连接**：通过作用域（如 `Modifier`) 传递属性，类似粘土的延展性。
+- **隐式连接**：通过作用域（如 `Modifier`) 传递属性，类似粘土的延展性。
 
 ```kotlin
 // 类似用粘土捏一辆车
@@ -141,13 +140,14 @@ CarScope {
   Roof(shape = RectangleShape) // 车顶
 }
 ```
+
 其优势在于**极致灵活**（可任意组合/拆解逻辑）。局限则是比较依赖平台渲染能力（「粘土材质」由 Android 原生决定）。
 
 总结两者的设计理念本质差异如下：
 
-| 维度          | Flutter（乐高）                | Jetpack Compose（粘土）         |
-|---------------|-------------------------------|-------------------------------|
-| **抽象单元**   | 对象（Widget）                | 函数（Composable）            |
-| **组合方式**   | 嵌套组装                      | 作用域内调用                  |
-| **修改成本**   | 重建 Widget 树               | 局部重塑                      |
-| **设计隐喻**   | 拼装标准化零件                | 自由雕刻材料                  |
+| 维度       | Flutter     | Jetpack Compose |
+| -------- | ----------- | --------------- |
+| **抽象单元** | 对象（Widget）  | 函数（Composable）  |
+| **组合方式** | 嵌套组装        | 作用域内调用          |
+| **修改成本** | 重建 Widget 树 | 局部重塑            |
+| **设计隐喻** | 拼装标准化零件     | 自由雕刻材料          |
