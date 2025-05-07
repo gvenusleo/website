@@ -37,6 +37,7 @@ anchors = "on"
 sections = [
     # { name = "home", path = "/", is_external = false },
     { name = "posts", path = "/posts", is_external = false },
+    { name = "tags", path = "/tags", is_external = false },
     { name = "projects", path = "/projects", is_external = false },
     { name = "resume", path = "/resume.pdf", is_external = true },
     { name = "rss", path = "/feed.xml", is_external = true },
@@ -44,8 +45,8 @@ sections = [
 
 blog_section_path = "/posts"
 
-back_link_text = "Back"  # Text of the back button
-force_theme = false      # false | "light" | "dark"
+back_link_text = "Back" # Text of the back button
+force_theme = false     # false | "light" | "dark"
 
 footer_copyright = "© 2025 liuyuxin 京ICP备2022029058号"
 footer_credits = false
